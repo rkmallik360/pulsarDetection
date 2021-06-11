@@ -1,0 +1,774 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<!--Converted with LaTeX2HTML 97.1 (release) (July 13th, 1997)
+ by Nikos Drakos (nikos@cbl.leeds.ac.uk), CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippman, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Definition of the Flexible Image Transport System (FITS) </TITLE>
+<META NAME="description" CONTENT="Definition of the Flexible Image Transport System (FITS) ">
+<META NAME="keywords" CONTENT="fits_standard">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso_8859_1">
+<LINK REL="STYLESHEET" HREF="fits_standard.css">
+<LINK REL="next" HREF="node1.html">
+</HEAD>
+<BODY bgcolor="#FFFFFF">
+<!--Navigation Panel-->
+<A NAME="tex2html22"
+ HREF="node1.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="http://www.stsci.edu/icons//next_motif.gif"></A> 
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="http://www.stsci.edu/icons//up_motif_gr.gif"> 
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="http://www.stsci.edu/icons//previous_motif_gr.gif"> 
+<A NAME="tex2html20"
+ HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="http://www.stsci.edu/icons//contents_motif.gif"></A> 
+<A NAME="tex2html21"
+ HREF="node98.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="http://www.stsci.edu/icons//index_motif.gif"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html23"
+ HREF="node1.html">Contents</A>
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+<center>
+<H1 ALIGN="CENTER">Definition of the Flexible Image Transport System (<EM>FITS) </EM></H1>
+<P><h2>March 29, 1999</STRONG></h2>
+<p>
+<h2>NOST 100-2.0</h2>
+<P>
+<br>
+<h4>NASA/Science Office of Standards and Technology 
+<br>
+            Code 633.2  
+<br>
+            NASA Goddard Space Flight Center 
+<br>
+            Greenbelt MD 20771 
+<br>
+            USA
+</h4>
+</center>
+<p>
+<br>
+<br>
+The NASA/Science Office of Standards and Technology
+(NOST) of the National Space Science Data Center (NSSDC)
+of the National Aeronautics and Space Administration (NASA)
+has been established to
+serve the space science communities in evolving cost effective, interoperable
+data systems. The NOST performs
+a number of functions designed to facilitate
+the recognition, development, adoption, and use of standards by the space
+science communities.
+<P>
+Approval of a NOST standard requires verification by the NOST that the
+following requirements have been met: consensus of the Technical
+Panel, proper adjudication of the comments received
+from the targeted space and Earth science community,
+and conformance to the accreditation process.
+<p>
+A NOST standard represents the consensus of
+the Technical Panel convened by the NOST\@.
+Consensus is established when the NOST Accreditation
+Panel determines that substantial agreement has been reached by the
+Technical Panel.  However, consensus does not necessarily imply
+that all members were in
+full agreement with every item in the standard. NOST standards are not
+binding as published; however, they may serve as a basis for mandatory
+standards when adopted by NASA or other organizations.
+<p>
+A NOST standard may be revised at any time, depending on
+developments in the areas covered by the standard. Also, within five
+years from the date of its issuance, this standard will be reviewed by
+the NOST to determine whether it should
+1) remain in effect without change,
+2) be changed to reflect the impact of new technologies or new
+requirements,
+or 3) be retired or canceled.
+<p>
+The Technical Panel that developed this version of the standard consisted of the
+following members: 
+<ul>
+<li><b>         Robert J. Hanisch</b>, Chair, 
+             Space Telescope Science Institute
+<li><b>         William D. Pence</b>, Secretary, 
+             NASA Goddard Space Flight Center 
+<li><b>         Barry M. Schlesinger</b>, Past Secretary, 
+             Raytheon STX
+<li><b>         Allen Farris </b>, 
+             Space Telescope Science Institute
+<li><b>         Eric W. Greisen </b>, 
+             National Radio Astronomy Observatory
+<li><b>         Peter J. Teuben </b>, 
+             University of Maryland
+<li><b>         Randall W. Thompson</b>, 
+             Computer Sciences Corporation
+<li><b>         Archibald Warnock</b>, 
+              A/WWW Enterprises 
+</ul>
+<p>
+Members of the previous Technical Panels also included:
+<ul>
+<li><b>         Lee E. Brotzman</b>, 
+             Hughes STX
+<li><b>         Edward Kemper</b>, 
+             Hughes STX
+<li><b>         Michael E. Van Steenberg</b>, 
+             NASA Goddard Space Flight Center
+<li><b>         Wayne H. Warren Jr.</b>, 
+             Hughes STX
+<li><b>         Richard A. White</b>, 
+             NASA Goddard Space Flight Center
+</ul>
+
+<p>
+<br>
+<br>
+This standard is published and maintained by the NOST. Send comments
+and orders for NOST documents to:
+<br>
+<blockquote>
+            NOST, Code 633.2, NASA Goddard Space Flight Center<br>
+            Greenbelt MD 20771 <br>
+            USA <br>
+            <a href="mailto:nost@nssdca.gsfc.nasa.gov">
+            electronic mail: nost@nssdca.gsfc.nasa.gov</a> <br>
+            +1-301-286-3575 <br>
+            <a href="http://ssdoo.gsfc.nasa.gov/nost/">
+            http://ssdoo.gsfc.nasa.gov/nost/</a> <br>
+</blockquote>
+<p>
+<br>
+Other information about FITS can be obtained from the FITS support
+office. The FITS Support Office can be contacted as follows:
+<br>
+<blockquote>
+            FITS Support Office <br>
+            Code 631, NASA Goddard Space Flight Center<br>
+            Greenbelt MD 20771 <br>
+            USA <br>
+            <a href="mailto:fits@fits.gsfc.nasa.gov">
+            electronic mail: fits@fits.gsfc.nasa.gov</a> <br>
+            +1-301-286-6695 <br>
+            <a href="http://fits.gsfc.nasa.gov/">
+            http://fits.gsfc.nasa.gov/</a> <br>
+</blockquote>
+
+<p>
+<P>
+<BR>
+<BR>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS">&#160;</A>
+<UL>
+<LI><A NAME="tex2html24"
+ HREF="node1.html#SECTION00100000000000000000">
+Contents</A>
+<LI><A NAME="tex2html25"
+ HREF="node2.html#SECTION00200000000000000000">
+List of Tables</A>
+<LI><A NAME="tex2html26"
+ HREF="node3.html#SECTION00300000000000000000">
+List of Figures</A>
+<LI><A NAME="tex2html27"
+ HREF="node4.html#SECTION00400000000000000000">
+Introduction</A>
+<LI><A NAME="tex2html28"
+ HREF="node5.html#SECTION00500000000000000000">
+1 Overview</A>
+<UL>
+<LI><A NAME="tex2html29"
+ HREF="node6.html#SECTION00510000000000000000">
+1.1 Purpose</A>
+<LI><A NAME="tex2html30"
+ HREF="node7.html#SECTION00520000000000000000">
+1.2 Scope</A>
+<LI><A NAME="tex2html31"
+ HREF="node8.html#SECTION00530000000000000000">
+1.3 Applicability</A>
+<LI><A NAME="tex2html32"
+ HREF="node9.html#SECTION00540000000000000000">
+1.4 Organization of This Document</A>
+</UL>
+<LI><A NAME="tex2html33"
+ HREF="node10.html#SECTION00600000000000000000">
+2 References</A>
+<LI><A NAME="tex2html34"
+ HREF="node11.html#SECTION00700000000000000000">
+3 Definitions, Acronyms, and Symbols</A>
+<LI><A NAME="tex2html35"
+ HREF="node12.html#SECTION00800000000000000000">
+4 FITS File Organization</A>
+<UL>
+<LI><A NAME="tex2html36"
+ HREF="node13.html#SECTION00810000000000000000">
+4.1 Overall</A>
+<LI><A NAME="tex2html37"
+ HREF="node14.html#SECTION00820000000000000000">
+4.2 Individual <EM><B>FITS</EM></B> Structures</A>
+<LI><A NAME="tex2html38"
+ HREF="node15.html#SECTION00830000000000000000">
+4.3 Primary Header and Data Array</A>
+<UL>
+<LI><A NAME="tex2html39"
+ HREF="node16.html#SECTION00831000000000000000">
+4.3.1 Primary Header</A>
+<LI><A NAME="tex2html40"
+ HREF="node17.html#SECTION00832000000000000000">
+4.3.2 Primary Data Array</A>
+</UL>
+<LI><A NAME="tex2html41"
+ HREF="node18.html#SECTION00840000000000000000">
+4.4 Extensions</A>
+<UL>
+<LI><A NAME="tex2html42"
+ HREF="node19.html#SECTION00841000000000000000">
+4.4.1 Requirements for Conforming Extensions</A>
+<UL>
+<LI><A NAME="tex2html43"
+ HREF="node19.html#SECTION00841100000000000000">
+4.4.1.1 Identity</A>
+<LI><A NAME="tex2html44"
+ HREF="node19.html#SECTION00841200000000000000">
+4.4.1.2 Size Specification</A>
+<LI><A NAME="tex2html45"
+ HREF="node19.html#SECTION00841300000000000000">
+4.4.1.3 Compatibility with Existing <EM><B>FITS</EM></B> Files</A>
+</UL>
+<LI><A NAME="tex2html46"
+ HREF="node20.html#SECTION00842000000000000000">
+4.4.2 Standard Extensions</A>
+<LI><A NAME="tex2html47"
+ HREF="node21.html#SECTION00843000000000000000">
+4.4.3 Order of Extensions</A>
+</UL>
+<LI><A NAME="tex2html48"
+ HREF="node22.html#SECTION00850000000000000000">
+4.5 Special Records</A>
+<LI><A NAME="tex2html49"
+ HREF="node23.html#SECTION00860000000000000000">
+4.6 Physical Blocking</A>
+<UL>
+<LI><A NAME="tex2html50"
+ HREF="node24.html#SECTION00861000000000000000">
+4.6.1 Bitstream Devices</A>
+<LI><A NAME="tex2html51"
+ HREF="node25.html#SECTION00862000000000000000">
+4.6.2 Sequential Media</A>
+<UL>
+<LI><A NAME="tex2html52"
+ HREF="node25.html#SECTION00862100000000000000">
+4.6.2.1 Fixed Block</A>
+<LI><A NAME="tex2html53"
+ HREF="node25.html#SECTION00862200000000000000">
+4.6.2.2 Variable Block</A>
+</UL>
+</UL>
+</UL>
+<LI><A NAME="tex2html54"
+ HREF="node26.html#SECTION00900000000000000000">
+5 Headers</A>
+<UL>
+<LI><A NAME="tex2html55"
+ HREF="node27.html#SECTION00910000000000000000">
+5.1 Card Images</A>
+<UL>
+<LI><A NAME="tex2html56"
+ HREF="node28.html#SECTION00911000000000000000">
+5.1.1 Syntax</A>
+<LI><A NAME="tex2html57"
+ HREF="node29.html#SECTION00912000000000000000">
+5.1.2 Components</A>
+<UL>
+<LI><A NAME="tex2html58"
+ HREF="node29.html#SECTION00912100000000000000">
+5.1.2.1 Keyword (bytes 1-8)</A>
+<LI><A NAME="tex2html59"
+ HREF="node29.html#SECTION00912200000000000000">
+5.1.2.2 Value Indicator (bytes 9-10)</A>
+<LI><A NAME="tex2html60"
+ HREF="node29.html#SECTION00912300000000000000">
+5.1.2.3 Value/Comment (bytes 11-80)</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html61"
+ HREF="node30.html#SECTION00920000000000000000">
+5.2 Value</A>
+<UL>
+<LI><A NAME="tex2html62"
+ HREF="node31.html#SECTION00921000000000000000">
+5.2.1 Character String</A>
+<LI><A NAME="tex2html63"
+ HREF="node32.html#SECTION00922000000000000000">
+5.2.2 Logical</A>
+<LI><A NAME="tex2html64"
+ HREF="node33.html#SECTION00923000000000000000">
+5.2.3 Integer Number</A>
+<LI><A NAME="tex2html65"
+ HREF="node34.html#SECTION00924000000000000000">
+5.2.4 Real Floating Point Number</A>
+<LI><A NAME="tex2html66"
+ HREF="node35.html#SECTION00925000000000000000">
+5.2.5 Complex Integer Number</A>
+<LI><A NAME="tex2html67"
+ HREF="node36.html#SECTION00926000000000000000">
+5.2.6 Complex Floating Point Number</A>
+</UL>
+<LI><A NAME="tex2html68"
+ HREF="node37.html#SECTION00930000000000000000">
+5.3 Units</A>
+<LI><A NAME="tex2html69"
+ HREF="node38.html#SECTION00940000000000000000">
+5.4 Keywords</A>
+<UL>
+<LI><A NAME="tex2html70"
+ HREF="node39.html#SECTION00941000000000000000">
+5.4.1 Mandatory Keywords</A>
+<UL>
+<LI><A NAME="tex2html71"
+ HREF="node39.html#SECTION00941100000000000000">
+5.4.1.1 Principal</A>
+<LI><A NAME="tex2html72"
+ HREF="node39.html#SECTION00941200000000000000">
+5.4.1.2 Conforming Extensions</A>
+</UL>
+<LI><A NAME="tex2html73"
+ HREF="node40.html#SECTION00942000000000000000">
+5.4.2 Other Reserved Keywords</A>
+<UL>
+<LI><A NAME="tex2html74"
+ HREF="node40.html#SECTION00942100000000000000">
+5.4.2.1 Keywords Describing the History or Physical
+ Construction of the HDU</A>
+<LI><A NAME="tex2html75"
+ HREF="node40.html#SECTION00942200000000000000">
+5.4.2.2 Keywords Describing Observations</A>
+<LI><A NAME="tex2html76"
+ HREF="node40.html#SECTION00942300000000000000">
+5.4.2.3 Bibliographic Keywords</A>
+<LI><A NAME="tex2html77"
+ HREF="node40.html#SECTION00942400000000000000">
+5.4.2.4 Commentary Keywords</A>
+<LI><A NAME="tex2html78"
+ HREF="node40.html#SECTION00942500000000000000">
+5.4.2.5 Array Keywords</A>
+<LI><A NAME="tex2html79"
+ HREF="node40.html#SECTION00942600000000000000">
+5.4.2.6 Extension Keywords</A>
+</UL>
+<LI><A NAME="tex2html80"
+ HREF="node41.html#SECTION00943000000000000000">
+5.4.3 Additional Keywords</A>
+<UL>
+<LI><A NAME="tex2html81"
+ HREF="node41.html#SECTION00943100000000000000">
+5.4.3.1 Requirements</A>
+<LI><A NAME="tex2html82"
+ HREF="node41.html#SECTION00943200000000000000">
+5.4.3.2 Restrictions</A>
+</UL>
+</UL>
+</UL>
+<LI><A NAME="tex2html83"
+ HREF="node42.html#SECTION001000000000000000000">
+6 Data Representation</A>
+<UL>
+<LI><A NAME="tex2html84"
+ HREF="node43.html#SECTION001010000000000000000">
+6.1 Characters</A>
+<LI><A NAME="tex2html85"
+ HREF="node44.html#SECTION001020000000000000000">
+6.2 Integers</A>
+<UL>
+<LI><A NAME="tex2html86"
+ HREF="node45.html#SECTION001021000000000000000">
+6.2.1 Eight-bit</A>
+<LI><A NAME="tex2html87"
+ HREF="node46.html#SECTION001022000000000000000">
+6.2.2 Sixteen-bit</A>
+<LI><A NAME="tex2html88"
+ HREF="node47.html#SECTION001023000000000000000">
+6.2.3 Thirty-two-bit</A>
+<LI><A NAME="tex2html89"
+ HREF="node48.html#SECTION001024000000000000000">
+6.2.4 Unsigned Integers</A>
+</UL>
+<LI><A NAME="tex2html90"
+ HREF="node49.html#SECTION001030000000000000000">
+6.3 IEEE-754 Floating Point</A>
+</UL>
+<LI><A NAME="tex2html91"
+ HREF="node50.html#SECTION001100000000000000000">
+7 Random Groups Structure</A>
+<UL>
+<LI><A NAME="tex2html92"
+ HREF="node51.html#SECTION001110000000000000000">
+7.1 Keywords</A>
+<UL>
+<LI><A NAME="tex2html93"
+ HREF="node52.html#SECTION001111000000000000000">
+7.1.1 Mandatory Keywords</A>
+<UL>
+<LI><A NAME="tex2html94"
+ HREF="node52.html#SECTION001111100000000000000">
+<TT>SIMPLE</TT> Keyword</A>
+<LI><A NAME="tex2html95"
+ HREF="node52.html#SECTION001111200000000000000">
+<TT>BITPIX</TT> Keyword</A>
+<LI><A NAME="tex2html96"
+ HREF="node52.html#SECTION001111300000000000000">
+<TT>NAXIS</TT> Keyword</A>
+<LI><A NAME="tex2html97"
+ HREF="node52.html#SECTION001111400000000000000">
+7.1.1.4 <TT>NAXIS1</TT> Keyword</A>
+<LI><A NAME="tex2html98"
+ HREF="node52.html#SECTION001111500000000000000">
+7.1.1.5 <TT>NAXISn</TT> 
+   Keywords (n=2, ..., value of <TT>NAXIS</TT>)</A>
+<LI><A NAME="tex2html99"
+ HREF="node52.html#SECTION001111600000000000000">
+7.1.1.6 <TT>GROUPS</TT> Keyword</A>
+<LI><A NAME="tex2html100"
+ HREF="node52.html#SECTION001111700000000000000">
+<TT>PCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html101"
+ HREF="node52.html#SECTION001111800000000000000">
+<TT>GCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html102"
+ HREF="node52.html#SECTION001111900000000000000">
+<TT>END</TT> Keyword</A>
+</UL>
+<LI><A NAME="tex2html103"
+ HREF="node53.html#SECTION001112000000000000000">
+7.1.2 Reserved Keywords</A>
+<UL>
+<LI><A NAME="tex2html104"
+ HREF="node53.html#SECTION001112100000000000000">
+7.1.2.1 <TT>PTYPEn</TT> Keywords</A>
+<LI><A NAME="tex2html105"
+ HREF="node53.html#SECTION001112200000000000000">
+7.1.2.2 <TT>PSCALn</TT> Keywords</A>
+<LI><A NAME="tex2html106"
+ HREF="node53.html#SECTION001112300000000000000">
+7.1.2.3 <TT>PZEROn</TT> Keywords</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html107"
+ HREF="node54.html#SECTION001120000000000000000">
+7.2 Data Sequence</A>
+<LI><A NAME="tex2html108"
+ HREF="node55.html#SECTION001130000000000000000">
+7.3 Data Representation</A>
+</UL>
+<LI><A NAME="tex2html109"
+ HREF="node56.html#SECTION001200000000000000000">
+8 Standard Extensions</A>
+<UL>
+<LI><A NAME="tex2html110"
+ HREF="node57.html#SECTION001210000000000000000">
+8.1 The ASCII Table Extension</A>
+<UL>
+<LI><A NAME="tex2html111"
+ HREF="node58.html#SECTION001211000000000000000">
+8.1.1 Mandatory Keywords</A>
+<UL>
+<LI><A NAME="tex2html112"
+ HREF="node58.html#SECTION001211010000000000000">
+<TT>XTENSION</TT> Keyword</A>
+<LI><A NAME="tex2html113"
+ HREF="node58.html#SECTION001211020000000000000">
+<TT>BITPIX</TT> Keyword</A>
+<LI><A NAME="tex2html114"
+ HREF="node58.html#SECTION001211030000000000000">
+<TT>NAXIS</TT> Keyword</A>
+<LI><A NAME="tex2html115"
+ HREF="node58.html#SECTION001211040000000000000">
+<TT>NAXIS1</TT> Keyword</A>
+<LI><A NAME="tex2html116"
+ HREF="node58.html#SECTION001211050000000000000">
+<TT>NAXIS2</TT> Keyword</A>
+<LI><A NAME="tex2html117"
+ HREF="node58.html#SECTION001211060000000000000">
+<TT>PCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html118"
+ HREF="node58.html#SECTION001211070000000000000">
+<TT>GCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html119"
+ HREF="node58.html#SECTION001211080000000000000">
+<TT>TFIELDS</TT> Keyword</A>
+<LI><A NAME="tex2html120"
+ HREF="node58.html#SECTION001211090000000000000">
+<TT>TBCOLn</TT> Keywords</A>
+<LI><A NAME="tex2html121"
+ HREF="node58.html#SECTION0012110100000000000000">
+<TT>TFORMn</TT> Keywords</A>
+<LI><A NAME="tex2html122"
+ HREF="node58.html#SECTION0012110110000000000000">
+<TT>END</TT> Keyword</A>
+</UL>
+<LI><A NAME="tex2html123"
+ HREF="node59.html#SECTION001212000000000000000">
+8.1.2 Other Reserved Keywords</A>
+<UL>
+<LI><A NAME="tex2html124"
+ HREF="node59.html#SECTION001212010000000000000">
+<TT>TSCALn</TT> Keywords</A>
+<LI><A NAME="tex2html125"
+ HREF="node59.html#SECTION001212020000000000000">
+<TT>TZEROn</TT> Keywords</A>
+<LI><A NAME="tex2html126"
+ HREF="node59.html#SECTION001212030000000000000">
+<TT>TNULLn</TT> Keywords</A>
+<LI><A NAME="tex2html127"
+ HREF="node59.html#SECTION001212040000000000000">
+<TT>TTYPEn</TT> Keywords</A>
+<LI><A NAME="tex2html128"
+ HREF="node59.html#SECTION001212050000000000000">
+<TT>TUNITn</TT> Keywords</A>
+</UL>
+<LI><A NAME="tex2html129"
+ HREF="node60.html#SECTION001213000000000000000">
+8.1.3 Data Sequence</A>
+<LI><A NAME="tex2html130"
+ HREF="node61.html#SECTION001214000000000000000">
+8.1.4 Fields</A>
+<LI><A NAME="tex2html131"
+ HREF="node62.html#SECTION001215000000000000000">
+8.1.5 Entries</A>
+</UL>
+<LI><A NAME="tex2html132"
+ HREF="node63.html#SECTION001220000000000000000">
+8.2 Image Extension</A>
+<UL>
+<LI><A NAME="tex2html133"
+ HREF="node64.html#SECTION001221000000000000000">
+8.2.1 Mandatory Keywords</A>
+<UL>
+<LI><A NAME="tex2html134"
+ HREF="node64.html#SECTION001221010000000000000">
+<TT>XTENSION</TT> Keyword</A>
+<LI><A NAME="tex2html135"
+ HREF="node64.html#SECTION001221020000000000000">
+<TT>BITPIX</TT> Keyword</A>
+<LI><A NAME="tex2html136"
+ HREF="node64.html#SECTION001221030000000000000">
+<TT>NAXIS</TT> Keyword</A>
+<LI><A NAME="tex2html137"
+ HREF="node64.html#SECTION001221040000000000000">
+<TT>NAXISn</TT> Keywords</A>
+<LI><A NAME="tex2html138"
+ HREF="node64.html#SECTION001221050000000000000">
+<TT>PCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html139"
+ HREF="node64.html#SECTION001221060000000000000">
+<TT>GCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html140"
+ HREF="node64.html#SECTION001221070000000000000">
+<TT>END</TT> Keyword</A>
+</UL>
+<LI><A NAME="tex2html141"
+ HREF="node65.html#SECTION001222000000000000000">
+8.2.2 Units</A>
+<LI><A NAME="tex2html142"
+ HREF="node66.html#SECTION001223000000000000000">
+8.2.3 Data Sequence</A>
+</UL>
+<LI><A NAME="tex2html143"
+ HREF="node67.html#SECTION001230000000000000000">
+8.3 Binary Table Extension</A>
+<UL>
+<LI><A NAME="tex2html144"
+ HREF="node68.html#SECTION001231000000000000000">
+8.3.1 Mandatory Keywords</A>
+<UL>
+<LI><A NAME="tex2html145"
+ HREF="node68.html#SECTION001231010000000000000">
+<TT>XTENSION</TT> Keyword</A>
+<LI><A NAME="tex2html146"
+ HREF="node68.html#SECTION001231020000000000000">
+<TT>BITPIX</TT> Keyword</A>
+<LI><A NAME="tex2html147"
+ HREF="node68.html#SECTION001231030000000000000">
+<TT>NAXIS</TT> Keyword</A>
+<LI><A NAME="tex2html148"
+ HREF="node68.html#SECTION001231040000000000000">
+<TT>NAXIS1</TT> Keyword</A>
+<LI><A NAME="tex2html149"
+ HREF="node68.html#SECTION001231050000000000000">
+<TT>NAXIS2</TT> Keyword</A>
+<LI><A NAME="tex2html150"
+ HREF="node68.html#SECTION001231060000000000000">
+<TT>PCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html151"
+ HREF="node68.html#SECTION001231070000000000000">
+<TT>GCOUNT</TT> Keyword</A>
+<LI><A NAME="tex2html152"
+ HREF="node68.html#SECTION001231080000000000000">
+<TT>TFIELDS</TT> Keyword</A>
+<LI><A NAME="tex2html153"
+ HREF="node68.html#SECTION001231090000000000000">
+<TT>TFORMn</TT> Keywords</A>
+<LI><A NAME="tex2html154"
+ HREF="node68.html#SECTION0012310100000000000000">
+<TT>END</TT> Keyword</A>
+</UL>
+<LI><A NAME="tex2html155"
+ HREF="node69.html#SECTION001232000000000000000">
+8.3.2 Other Reserved Keywords</A>
+<UL>
+<LI><A NAME="tex2html156"
+ HREF="node69.html#SECTION001232010000000000000">
+<TT>TTYPEn</TT> Keywords</A>
+<LI><A NAME="tex2html157"
+ HREF="node69.html#SECTION001232020000000000000">
+<TT>TUNITn</TT> Keywords</A>
+<LI><A NAME="tex2html158"
+ HREF="node69.html#SECTION001232030000000000000">
+<TT>TNULLn</TT> Keywords</A>
+<LI><A NAME="tex2html159"
+ HREF="node69.html#SECTION001232040000000000000">
+<TT>TSCALn</TT> Keywords</A>
+<LI><A NAME="tex2html160"
+ HREF="node69.html#SECTION001232050000000000000">
+<TT>TZEROn</TT> Keywords</A>
+<LI><A NAME="tex2html161"
+ HREF="node69.html#SECTION001232060000000000000">
+<TT>TDISPn</TT> Keywords</A>
+<LI><A NAME="tex2html162"
+ HREF="node69.html#SECTION001232070000000000000">
+<TT>THEAP</TT> Keyword</A>
+<LI><A NAME="tex2html163"
+ HREF="node69.html#SECTION001232080000000000000">
+<TT>TDIMn</TT> Keywords</A>
+</UL>
+<LI><A NAME="tex2html164"
+ HREF="node70.html#SECTION001233000000000000000">
+8.3.3 Data Sequence</A>
+<UL>
+<LI><A NAME="tex2html165"
+ HREF="node70.html#SECTION001233100000000000000">
+8.3.3.1 Main Data Table</A>
+<LI><A NAME="tex2html166"
+ HREF="node70.html#SECTION001233200000000000000">
+8.3.3.2 Bytes Following Main Table</A>
+</UL>
+<LI><A NAME="tex2html167"
+ HREF="node71.html#SECTION001234000000000000000">
+8.3.4 Data Display</A>
+</UL>
+</UL>
+<LI><A NAME="tex2html168"
+ HREF="node72.html#SECTION001300000000000000000">
+9 Restrictions on Changes</A>
+<LI><A NAME="tex2html169"
+ HREF="node73.html#SECTION001400000000000000000">
+A Formal Syntax of Card Images</A>
+<LI><A NAME="tex2html170"
+ HREF="node74.html#SECTION001500000000000000000">
+B Proposed Binary Table Conventions</A>
+<UL>
+<LI><A NAME="tex2html171"
+ HREF="node75.html#SECTION001510000000000000000">
+B.1 ``Variable Length Array'' Facility</A>
+<LI><A NAME="tex2html172"
+ HREF="node76.html#SECTION001520000000000000000">
+B.2 ``Multidimensional Array'' Convention</A>
+<LI><A NAME="tex2html173"
+ HREF="node77.html#SECTION001530000000000000000">
+B.3 ``Substring Array'' Convention</A>
+</UL>
+<LI><A NAME="tex2html174"
+ HREF="node78.html#SECTION001600000000000000000">
+C Implementation on Physical Media</A>
+<UL>
+<LI><A NAME="tex2html175"
+ HREF="node79.html#SECTION001610000000000000000">
+C.1 Physical Properties of Media</A>
+<LI><A NAME="tex2html176"
+ HREF="node80.html#SECTION001620000000000000000">
+C.2 Labeling</A>
+<UL>
+<LI><A NAME="tex2html177"
+ HREF="node81.html#SECTION001621000000000000000">
+C.2.1 Tape</A>
+<LI><A NAME="tex2html178"
+ HREF="node82.html#SECTION001622000000000000000">
+C.2.2 Other Media</A>
+</UL>
+<LI><A NAME="tex2html179"
+ HREF="node83.html#SECTION001630000000000000000">
+C.3 <EM><B>FITS</EM></B> File Boundaries</A>
+<UL>
+<LI><A NAME="tex2html180"
+ HREF="node84.html#SECTION001631000000000000000">
+C.3.1 Magnetic Reel Tape</A>
+<LI><A NAME="tex2html181"
+ HREF="node85.html#SECTION001632000000000000000">
+C.3.2 Other Media</A>
+</UL>
+<LI><A NAME="tex2html182"
+ HREF="node86.html#SECTION001640000000000000000">
+C.4 Multiple Physical Volumes</A>
+</UL>
+<LI><A NAME="tex2html183"
+ HREF="node87.html#SECTION001700000000000000000">
+D Suggested Time Scale Specification</A>
+<LI><A NAME="tex2html184"
+ HREF="node88.html#SECTION001800000000000000000">
+E Differences from IAU-endorsed Publications</A>
+<LI><A NAME="tex2html185"
+ HREF="node89.html#SECTION001900000000000000000">
+F Summary of Keywords</A>
+<LI><A NAME="tex2html186"
+ HREF="node90.html#SECTION002000000000000000000">
+G ASCII Text</A>
+<LI><A NAME="tex2html187"
+ HREF="node91.html#SECTION002100000000000000000">
+H IEEE Floating Point Formats</A>
+<UL>
+<LI><A NAME="tex2html188"
+ HREF="node92.html#SECTION002110000000000000000">
+H.1 Basic Formats</A>
+<UL>
+<LI><A NAME="tex2html189"
+ HREF="node93.html#SECTION002111000000000000000">
+H.1.1 Single</A>
+<LI><A NAME="tex2html190"
+ HREF="node94.html#SECTION002112000000000000000">
+H.1.2 Double</A>
+</UL>
+<LI><A NAME="tex2html191"
+ HREF="node95.html#SECTION002120000000000000000">
+H.2 Byte Patterns</A>
+</UL>
+<LI><A NAME="tex2html192"
+ HREF="node96.html#SECTION002200000000000000000">
+I Reserved Extension Type Names</A>
+<LI><A NAME="tex2html193"
+ HREF="node97.html#SECTION002300000000000000000">
+J NOST Publications</A>
+<LI><A NAME="tex2html194"
+ HREF="node98.html#SECTION002400000000000000000">
+Index</A>
+<LI><A NAME="tex2html195"
+ HREF="node99.html#SECTION002500000000000000000">
+About this document ... </A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+<I> </I>
+<BR><I>5/13/1999</I>
+</ADDRESS>
+</BODY bgcolor="#FFFFFF">
+</HTML>
